@@ -1,0 +1,24 @@
+<script type="text/discourse-plugin" version="0.8">
+  const  loadScript  = require("discourse/lib/load-script").default;
+  const { next } = require("@ember/runloop");
+
+  api.decorateCookedElement(
+    post => {
+      const calendars = post.querySelectorAll(`[data-wrap="addEvent"]`);
+      if (!calendars.length) return;
+
+      calendars.forEach(calendar => {
+        const wrapper = document.createElement("div");
+        wrapper.dataset.calendar = calendar.dataset.calendar;
+        wrapper.dataset.configure = false;
+        wrapper.classList.add("ae-emd-cal");
+        calendar.append(wrapper);
+      });
+
+      next(() =>
+        loadScript("https://addevent.com/js/cal.embed.t1.init.js")
+      );
+    },
+    { id: "AddEvent decorator", onlyStream: true }
+  );
+</script>
