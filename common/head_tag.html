@@ -21,8 +21,10 @@
         wrapper.dataset.datetimeformat = 1;
         wrapper.dataset.timezone = true;
         wrapper.dataset.print = true;
+        wrapper.dataset.title = '';
+        wrapper.dataset.title.show = true;
         wrapper.dataset.calendars = calendar.dataset.calendar;
-        wrapper.dataset.calendars_selected = calendar.dataset.calendar;
+        wrapper.dataset.calendars.selected = calendar.dataset.calendar;
         wrapper.classList.add("ae-emd-cal");
         calendar.append(wrapper);
       });
