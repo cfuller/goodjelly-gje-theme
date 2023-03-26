@@ -10,7 +10,8 @@
       calendars.forEach(calendar => {
         const wrapper = document.createElement("div");
         wrapper.dataset.calendar = calendar.dataset.calendar;
-        wrapper.dataset.configure = false;
+        wrapper.dataset.configure = true;
+        wrapper.dataset.defaultview = 'month';
         wrapper.classList.add("ae-emd-cal");
         calendar.append(wrapper);
       });
